@@ -25,5 +25,5 @@
     "The build script drops every column not in the public/controlled whitelist and refuses in-repo masters.",
     "A fresh public clone plus `slr-engine verify-public` must pass offline with no restricted data present."
   ],
-  "generated": "Provenance for the v1.0.0-mdpi MDPI release; the archived Zenodo software DOI is added once the tag is published on Zenodo."
+  "generated": "Provenance for the v1.0.0-mdpi MDPI release (Zenodo software DOI: 10.5281/zenodo.22703556)."
 }

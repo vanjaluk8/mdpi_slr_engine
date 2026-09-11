@@ -24,8 +24,8 @@ author:
 paper:
   title: ""                              # TODO(owner): manuscript title
   journal: ""                            # TODO(owner): target MDPI journal
-  manuscript_doi: ""                     # TODO(owner): add after submission/production
-  repo_doi: ""                           # TODO(owner): add archived Zenodo software DOI (from GitHub release)
+  manuscript_doi: "10.5281/zenodo.22703573"  # Zenodo DOI for the manuscript/paper (mdpi_paper_slr)
+  repo_doi: "10.5281/zenodo.22703556"    # archived Zenodo software DOI (SLR Engine release)
 
 seeds:
   source: "data/inputs/G0_seed_papers.md (restricted; supplied via SLR_DATA_ROOT)"

@@ -2,7 +2,8 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "name": "SLR Engine",
-  "identifier": "slr-engine",
+  "identifier": "https://doi.org/10.5281/zenodo.22703556",
+  "@id": "https://doi.org/10.5281/zenodo.22703556",
   "description": "Automated systematic literature review (SLR) engine with citation snowballing (Wohlin 2014) and a PRISMA 2020-compatible audit trail, applied to parameter-efficient fine-tuning (PEFT) and modular adapter methods for transformer-based NLP models. Public release ships code, configs, schemas, open evidence tables and restricted-data safety tooling.",
   "version": "1.0.0-mdpi",
   "dateCreated": "2026-09-11",
@@ -15,7 +16,7 @@
   },
   "runtimePlatform": "Python >= 3.11",
   "codeRepository": "https://github.com/vanjaluk8/mdpi_slr_engine",
-  "relatedLink": ["https://zenodo.org/"],
+  "relatedLink": ["https://doi.org/10.5281/zenodo.22703556"],
   "author": [
     {
       "@type": "Person",

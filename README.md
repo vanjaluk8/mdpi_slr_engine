@@ -15,6 +15,9 @@ methods for transformer-based NLP models.
 > **not**. See [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md) and
 > [docs/restricted-data.md](docs/restricted-data.md).
 
+> **Cite as:** Vanja Luk. *SLR Engine* (v1.0.0-mdpi). Zenodo.
+> DOI: https://doi.org/10.5281/zenodo.22703556
+
 ---
 
 ## Quick start (public / offline)

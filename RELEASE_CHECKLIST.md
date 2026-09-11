@@ -60,8 +60,10 @@ placeholder in:
 1. Commit the final tree on `main`.
 2. Tag `v1.0.0-mdpi`.
 3. Push to `github.com/vanjaluk8/mdpi_slr_engine`.
-4. Archive the tag to **Zenodo** to mint a software DOI; paste it into
-   `pyproject.toml`, `CITATION.cff`, `provenance.json` and the manuscript.
+4. The SLR Engine software DOI `10.5281/zenodo.22703556` is already wired into
+   `pyproject.toml`, `CITATION.cff`, `codemeta.json`, `public_data/provenance.json`
+   and `configs/study.yaml`. Re-archive the tag to Zenodo only if the DOI must be
+   re-verified; otherwise keep it stable and cite it in the manuscript DAS.
 
 ## 6. Final reviewer pass
 
