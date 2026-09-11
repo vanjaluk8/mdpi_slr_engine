@@ -1,5 +1,7 @@
 # SLR Engine
 
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22703556-blue)](https://doi.org/10.5281/zenodo.22703556)
+
 Automated systematic literature review (SLR) engine with citation snowballing
 (Wohlin, 2014) and a PRISMA 2020-compatible audit trail, applied to the
 engineering of parameter-efficient fine-tuning (PEFT) and modular adapter
