@@ -58,6 +58,12 @@ restricted-study-vault/
 exports/
 api_cache/
 caches/
+# Stray nested clones of the sibling manuscript/corpus repos. These are
+# scratch checkouts, not part of this pipeline package, and may hold licensed
+# vendor metadata (abstracts, citation counts, raw exports). Never commit them.
+paper_code_ref/
+papers_code_ref/
+mdpi_paper_slr_ref/
 
 # Generated figures & intermediate pipeline output (regenerable).
 data/snowball_output/

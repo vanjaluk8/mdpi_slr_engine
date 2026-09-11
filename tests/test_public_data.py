@@ -72,7 +72,25 @@ def test_public_data_dictionary_header_allowed():
 
 
 def test_public_data_tables_exist():
+    """The public-evidence framework must be complete on a fresh clone.
+
+    Value tables under ``public_data/*.csv`` (included_studies, screening_decisions,
+    ...) are generated from the restricted master by the owner-only
+    ``build-public-data`` step and are therefore NOT committed; they may be absent
+    on a clean clone (``verify_public`` tolerates this: "value tables may be empty
+    on first clone"). What must exist is the always-present dictionary plus a
+    schema for every declared public table, so the framework is provably complete
+    even before the generated values are added.
+    """
     from slr_engine.public_data_check import PUBLIC_TABLES
+    # The one always-present CSV (encoding/classification dictionary) is committed.
+    assert (PUBLIC_DATA_DIR / "data_dictionary.csv").exists(), (
+        "missing committed data_dictionary.csv"
+    )
+    assert PUBLIC_DATA_DIR.is_dir(), "missing public_data/ directory"
+    # Every declared public table must have a committed schema.
+    schema_dir = PROJECT_ROOT / "schemas"
     for name, _ in PUBLIC_TABLES:
-        p = PUBLIC_DATA_DIR / name
-        assert p.exists(), f"missing required public table {name}"
+        stem = Path(name).stem  # e.g. included_studies.csv -> included_studies
+        schema = schema_dir / f"{stem}.schema.json"
+        assert schema.exists(), f"missing schema for public table {name}: {schema.name}"
