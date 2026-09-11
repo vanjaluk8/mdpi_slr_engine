@@ -14,18 +14,18 @@
     "url": "https://www.python.org/"
   },
   "runtimePlatform": "Python >= 3.11",
-  "codeRepository": "https://github.com/OWNER/slr-engine",
+  "codeRepository": "https://github.com/vanjaluk8/mdpi_slr_engine",
   "relatedLink": ["https://zenodo.org/"],
   "author": [
     {
       "@type": "Person",
-      "givenName": "OWNER",
-      "familyName": "Author",
+      "givenName": "Vanja",
+      "familyName": "Luk",
       "affiliation": {
         "@type": "Organization",
-        "name": "Infobip"
+        "name": "Faculty of Informatics and Digital Technologies, University of Rijeka"
       },
-      "identifier": "https://orcid.org/0000-0000-0000-0000"
+      "identifier": "https://orcid.org/0009-0009-8142-6890"
     }
   ],
   "keywords": [
@@ -36,10 +36,10 @@
     "peft",
     "nlp"
   ],
-  "funder": { "@type": "Organization", "name": "Infobip" },
+  "funder": { "@type": "Organization", "name": "No external funding" },
   "isAccessibleForFree": true,
   "developmentStatus": "active",
-  "issueTracker": "https://github.com/OWNER/slr-engine/issues",
+  "issueTracker": "https://github.com/vanjaluk8/mdpi_slr_engine/issues",
   "contIntegration": "GitHub Actions (.github/workflows/verify.yml)",
   "provides": [
     {

@@ -32,7 +32,7 @@ The manuscript should carry a Data Availability statement aligned with
 `DATA_AVAILABILITY.md`. Suggested wording:
 
 > The code for the systematic literature review is openly available in a public
-> repository (github.com/OWNER/slr-engine, v1.0.0-mdpi, archived under
+> repository (github.com/vanjaluk8/mdpi_slr_engine, v1.0.0-mdpi, archived under
 > [Zenodo soft DOI]). Open evidence — study identifiers, screening decisions,
 > exclusion reasons, aggregate PRISMA counts and the extraction coding — is
 > provided in `public_data/` with a column-level data dictionary and provenance
@@ -45,7 +45,7 @@ The manuscript should carry a Data Availability statement aligned with
 ## Code Availability statement
 
 > The code that implements the review pipeline is available at
-> github.com/OWNER/slr-engine (tag v1.0.0-mdpi) and archived at
+> github.com/vanjaluk8/mdpi_slr_engine (tag v1.0.0-mdpi) and archived at
 > [Zenodo soft DOI]. It is installable with `uv sync --extra dev` and can be
 > run offline for the public gates (`scan-restricted`, `verify-public`) and the
 > included tests. Full reproduction of the search/enrichment stages requires

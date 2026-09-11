@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "SLR Engine — public evidence provenance",
   "description": "Provenance and data-sharing model for the public evidence release. Raw vendor records are NOT redistributed; see DATA_AVAILABILITY.md and docs/restricted-data.md.",
-  "repository": "https://github.com/OWNER/slr-engine",
+  "repository": "https://github.com/vanjaluk8/mdpi_slr_engine",
   "release": "v1.0.0-mdpi",
   "data_sharing_model": {
     "public": "Code, configs, queries, aggregate counts, paper identifiers, screening decisions, exclusion reasons, researcher-created extraction coding, synthetic fixtures.",
@@ -25,5 +25,5 @@
     "The build script drops every column not in the public/controlled whitelist and refuses in-repo masters.",
     "A fresh public clone plus `slr-engine verify-public` must pass offline with no restricted data present."
   ],
-  "generated": "This provenance record is a template; OWNER must fill the GitHub URL and the archived Zenodo software DOI before the MDPI submission."
+  "generated": "Provenance for the v1.0.0-mdpi MDPI release; the archived Zenodo software DOI is added once the tag is published on Zenodo."
 }

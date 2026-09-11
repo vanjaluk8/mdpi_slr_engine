@@ -41,10 +41,10 @@ dev = [
 slr-engine = "slr_engine.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/OWNER/slr-engine"
-Documentation = "https://github.com/OWNER/slr-engine#readme"
-# TODO(owner): set the real GitHub URL and add the archived Zenodo software DOI
-#   (`zenodo_deposit_name`, release DOI) once the v1.0.0-mdpi tag is published.
+Homepage = "https://github.com/vanjaluk8/mdpi_slr_engine"
+Documentation = "https://github.com/vanjaluk8/mdpi_slr_engine#readme"
+# The archived Zenodo software DOI (`zenodo_deposit_name`, release DOI) is
+# added here once the v1.0.0-mdpi tag is published on Zenodo.
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/slr_engine"]

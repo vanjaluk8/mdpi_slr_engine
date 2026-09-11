@@ -59,7 +59,7 @@ placeholder in:
 
 1. Commit the final tree on `main`.
 2. Tag `v1.0.0-mdpi`.
-3. Push to `github.com/OWNER/slr-engine`.
+3. Push to `github.com/vanjaluk8/mdpi_slr_engine`.
 4. Archive the tag to **Zenodo** to mint a software DOI; paste it into
    `pyproject.toml`, `CITATION.cff`, `provenance.json` and the manuscript.
 
