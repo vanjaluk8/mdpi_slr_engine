@@ -1,0 +1,55 @@
+# ── Search strategies (protocol template) ───────────────────────────────────
+# Documents the databases/APIs, dates, and query orientation used to obtain the
+# (restricted) records. The public release ships this ORIENTATION ONLY — never
+# the raw retrieved records. Exact export files are retained in restricted
+# storage. TODO(owner): fill exact query strings / export dates as in your
+# manuscript appendix.
+
+search_log: "public_data/search_log_public.csv"
+
+databases:
+  - name: "Semantic Scholar"
+    endpoint: "https://api.semanticscholar.org/graph/v1/paper"
+    fields_requested: ["title", "abstract", "authors", "year", "venue", "citations", "references"]
+    licence: "ODC-BY bulk attribution; API terms restrict some redistribution — see docs/data-provenance.md"
+    live: true
+    note: "Backward references + forward citations from G0-G6 seeds."
+
+  - name: "Scopus (Elsevier API)"
+    endpoint: "https://api.elsevier.com/content"
+    fields_requested: ["Authors", "Title", "Year", "Source title", "DOI", "Cited by", "Abstract", "Author Keywords", "Index Keywords", "Affiliations", "References"]
+    licence: "Subscription-licensed; public redistribution requires written approval — see docs/restricted-data.md"
+    live: true
+    api_key_var: "SCOPUS_API_KEY"
+
+  - name: "Web of Science (Clarivate API)"
+    endpoint: "https://api.clarivate.com/apis/wos-starter/v1"
+    licence: "Subscription-licensed; limited ad hoc extracts may be distributable under terms — see docs/restricted-data.md"
+    live: true
+    api_key_var: "WOS_API_KEY"
+
+  - name: "IEEE Xplore API"
+    endpoint: "https://ieeexploreapi.ieee.org/api/v1"
+    licence: "Subscription-licensed metadata"
+    live: true
+    api_key_var: "IEEE_API_KEY"
+
+  - name: "ACL Anthology"
+    endpoint: "https://aclanthology.org/"
+    note: "Metadata only; local clone ~500 MB (external cache)"
+    licence: "Open metadata; check individual paper licences"
+    live: false
+
+retrieval_parameters:
+  max_references_per_paper: 100
+  max_citations_per_paper: 100
+  rate_limit_delay_seconds: 1.5
+  software: "slr-engine 1.0.0 (see pyproject.toml / uv.lock)"
+  export_dates: []   # TODO(owner): e.g. ["2026-05-08 (Scopus M1)", "2026-05-08 (WoS M2)"]
+
+further_searching:
+  snowball_direction: ["forward (citation snowballing)"]
+  stopping_rules:
+    - "Backward references collected up to max_references_per_paper."
+    - "Forward citations collected up to max_citations_per_paper."
+    - "Manual forward exports (M1 Scopus, M2 WoS) retained in restricted storage only."

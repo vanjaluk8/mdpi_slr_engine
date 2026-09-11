@@ -1,0 +1,38 @@
+# ── Eligibility criteria (protocol template) ────────────────────────────────
+# Researcher-generated screening rules. The decisions and reason codes derived
+# from these rules are PUBLIC evidence; the underlying records to which they
+# were applied are RESTRICTED. TODO(owner): align categories with your
+# manuscript's PRISMA appendix.
+
+inclusion:
+  population: "Research on efficient transformer fine-tuning / parameter-efficient fine-tuning (PEFT)"
+  intervention: "Adapter-based or modular parameter-efficient methods (LoRA, adapters, routing, MoE, distributed/federated PEFT)"
+  outcome: "Architectural or methodological characterisation relevant to decentralised adapter-based LLM inference"
+  setting: "Published peer-reviewed venues, arXiv preprints (metadata-level), ACM/IEEE/ACL sources"  # confirm in manuscript
+
+exclusion_categories:
+  - code: "OFFTOPIC"
+    label: "Out of scope (not PEFT / adapter / decentralised inference)"
+  - code: "MALFORMED"
+    label: "Malformed or non-paper record"
+  - code: "NON_ENGLISH"
+    label: "Non-English full text (where language was a criterion)"
+  - code: "PRINT_ONLY"
+    label: "Unobtainable full text despite OA/unpaywall resolution"   # TODO(owner): confirm
+  - code: "DUPLICATE"
+    label: "Duplicate work (fingerprinted duplicate pair)"
+  - code: "AUTHOR_EXCL"
+    label: "Author-level exclusion"                                   # TODO(owner): confirm/remove
+  - code: "NOT_APPLICABLE"
+    label: "Criterion not applicable at this stage"
+
+screening_stages:
+  - stage: "title"        # keyword rules +/- LLM triage
+  - stage: "abstract"     # interactive abstract review (k=keep, s=skip, d=defer, q=quit)
+  - stage: "fulltext"     # queue with exclusion reasons
+
+llm_triage:   # OPTIONAL screening aid — document the exact model + prompt config
+  provider: "Anthropic"
+  model: "claude-haiku-4-5-20251001"    # TODO(owner): confirm the exact model used for the paper
+  purpose: "Title/abstract triage only; final decisions are researcher-confirmed"
+  env_used: ["ANTHROPIC_API_KEY", "ANTHROPIC_BASE_URL", "LLM_SCREEN_MODEL"]

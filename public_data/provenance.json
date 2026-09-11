@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SLR Engine — public evidence provenance",
+  "description": "Provenance and data-sharing model for the public evidence release. Raw vendor records are NOT redistributed; see DATA_AVAILABILITY.md and docs/restricted-data.md.",
+  "repository": "https://github.com/OWNER/slr-engine",
+  "release": "v1.0.0-mdpi",
+  "data_sharing_model": {
+    "public": "Code, configs, queries, aggregate counts, paper identifiers, screening decisions, exclusion reasons, researcher-created extraction coding, synthetic fixtures.",
+    "controlled": "Minimal derived records possibly containing limited, licence-cleared vendor metadata; institutional repository or post-approval GitHub only.",
+    "restricted": "Raw Scopus/WoS exports, API responses, proprietary abstracts, citation lists, author affiliations/ids, downloaded PDFs, credentials. Retained in access-controlled storage; never in Git."
+  },
+  "paper_id_scheme": {
+    "description": "Stable public paper identifier. Assigned deterministically, never copied from a vendor.",
+    "priority": ["normalized_doi", "arxiv_id", "sha256(title + year)"],
+    "example": "doi:10.1000/xyz | arxiv:2401.12345 | sha:<16-hex>"
+  },
+  "field_classification": {
+    "public": ["paper_id", "doi", "arxiv_id", "year", "title", "venue", "decision", "exclusion_reason", "contribution_*", "peft_technique", "distribution_mechanism", "thesis_sections", "contribution_codes", "tier", "corpus", "reason_code"],
+    "review_required": ["exclusion_reason", "removal_reason", "notes_raw", "key_finding"],
+    "restricted": ["abstract", "keywords", "affiliations", "author_id", "citation_count", "times_cited", "references", "eid", "ss_paper_id", "linked_url", "funding", "Downloaded PDF"]
+  },
+  "build_steps": [
+    "Run `slr-engine scan-restricted` in CI and before tagging.",
+    "Owner runs `slr-engine build-public-data --master <external restricted CSV> --out-dir <repo>/public_data --force` from a controlled environment AFTER licence review.",
+    "The build script drops every column not in the public/controlled whitelist and refuses in-repo masters.",
+    "A fresh public clone plus `slr-engine verify-public` must pass offline with no restricted data present."
+  ],
+  "generated": "This provenance record is a template; OWNER must fill the GitHub URL and the archived Zenodo software DOI before the MDPI submission."
+}

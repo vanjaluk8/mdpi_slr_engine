@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "prisma_counts",
+  "description": "Aggregate PRISMA 2020 transition counts (derived, aggregate only — no records).",
+  "type": "object",
+  "required": ["stage", "transition", "count"],
+  "properties": {
+    "stage": { "type": "string" },
+    "transition": { "type": "string", "description": "e.g. identified->screened" },
+    "count": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

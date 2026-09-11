@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "data_extraction",
+  "description": "Data-extraction matrix — researcher-created analytical coding plus public identifiers.",
+  "type": "object",
+  "required": ["paper_id"],
+  "properties": {
+    "paper_id": { "type": "string", "minLength": 1 },
+    "contribution_type": { "type": "string" },
+    "peft_technique": { "type": "string" },
+    "distribution_mechanism": { "type": "string" },
+    "thesis_sections": { "type": "string" },
+    "contribution_codes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

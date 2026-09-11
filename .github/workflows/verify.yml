@@ -1,0 +1,53 @@
+name: verify-public
+
+# CI for the MDPI public release. Runs fully OFFLINE: no Scopus/WoS/IEEE/
+# Semantic Scholar live calls, no API keys, no restricted data. It proves a
+# clean clone installs, lints, passes unit/integration/schema tests, and that
+# PUBLIC checking confirms no restricted content has leaked into the tree.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.12"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Lock + install (from uv.lock)
+        run: uv sync --frozen --extra dev
+
+      - name: Lint (new/MDPI files only; legacy copied stages are excluded — they were never ruff-clean)
+        run: |
+          uv run ruff check \
+            src/slr_engine/__init__.py \
+            src/slr_engine/cli.py \
+            src/slr_engine/config.py \
+            src/slr_engine/public_data_check.py \
+            src/slr_engine/commands/enrich_and_filter.py \
+            src/slr_engine/commands/build_reading_list.py \
+            src/slr_engine/commands/merge_extractions.py \
+            tests/
+
+      - name: Unit / integration / schema tests
+        run: uv run --extra dev pytest
+
+      - name: Restricted-field scan
+        run: uv run slr-engine scan-restricted
+
+      - name: Public verification (offline reviewer gate)
+        run: uv run slr-engine verify-public

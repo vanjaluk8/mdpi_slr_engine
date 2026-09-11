@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "data_dictionary",
+  "description": "Field dictionary and licence classification for every column.",
+  "type": "object",
+  "required": ["column", "table", "provenance", "licence_class"],
+  "properties": {
+    "column": { "type": "string" },
+    "table": { "type": "string" },
+    "type": { "type": "string" },
+    "provenance": { "type": "string" },
+    "licence_class": { "type": "string", "enum": ["public", "low_risk_confirm", "controlled_external", "restricted", "review_required", "researcher-note"] },
+    "missing_value": { "type": "string" },
+    "reason": { "type": "string" }
+  },
+  "additionalProperties": false
+}

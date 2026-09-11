@@ -1,0 +1,70 @@
+# ── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.installed.cfg
+*.egg
+build/
+dist/
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# ── Environments & secrets ────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+.venv
+venv/
+env/
+ENV/
+*.pem
+*key*
+*.p12
+*.crt
+creds*.json
+service_account*.json
+
+# ── Editors / OS ──────────────────────────────────────────────────────────
+.idea/
+.vscode/
+.DS_Store
+.ipynb_checkpoints
+
+# ── Restricted data ───────────────────────────────────────────────────────
+# Vendor-originated / licensed metadata provided externally. These must NEVER
+# be added to this public repository. Authorized researchers supply them at
+# runtime via SLR_DATA_ROOT (an external, access-controlled path) — see
+# docs/restricted-data.md.
+#
+# Any directory that could hold raw exports, API caches, PDFs, or vendor
+# metadata is excluded wholesale. Do not un-ignore these unless the licence
+# for that exact content has been confirmed and documented.
+raw/
+data/raw/
+data/restricted/
+data/intermediate/
+restricted-study-vault/
+**/pdfs/
+**/*.pdf
+*.ris
+*.bib
+*.enw
+*.nbib
+exports/
+api_cache/
+caches/
+
+# Generated figures & intermediate pipeline output (regenerable).
+data/snowball_output/
+data/figures/
+public_data/*.csv
+!public_data/data_dictionary.csv
+!public_data/*.schema.json
+run_artifacts/
+
+# Editor / OS cruft already covered above.

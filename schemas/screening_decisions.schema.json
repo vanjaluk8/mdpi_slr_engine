@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "screening_decisions",
+  "description": "Per-paper screening decisions with controlled reason codes (researcher-generated).",
+  "type": "object",
+  "required": ["paper_id", "stage", "decision"],
+  "properties": {
+    "paper_id": { "type": "string", "minLength": 1 },
+    "stage": { "type": "string", "description": "Screening stage name." },
+    "decision": { "type": "string", "description": "included|excluded|uncertain|skipped" },
+    "reason_code": { "type": "string", "description": "Controlled reason code; see fulltext_exclusions." }
+  },
+  "additionalProperties": false
+}

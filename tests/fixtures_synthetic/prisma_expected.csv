@@ -1,0 +1,7 @@
+stage,transition,count
+identified,screened,7
+screening,abstract_included,4
+screening,abstract_uncertain,1
+screening,abstract_skipped,0
+fulltext,included,4
+fulltext,excluded,2

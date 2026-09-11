@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "search_log_public",
+  "description": "Public search log — counts and orientations only, never raw payloads.",
+  "type": "object",
+  "required": ["source", "query_id", "retrieval_date", "n_retrieved"],
+  "properties": {
+    "source": { "type": "string" },
+    "query_id": { "type": "string" },
+    "retrieval_date": { "type": "string", "format": "date" },
+    "n_retrieved": { "type": "integer", "minimum": 0 },
+    "run_id": { "type": "string" }
+  },
+  "additionalProperties": false
+}

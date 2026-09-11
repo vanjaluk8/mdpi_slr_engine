@@ -1,0 +1,66 @@
+column,table,type,provenance,licence_class,missing_value,reason
+paper_id,all,nominal,researcher-assigned (see provenance.json),public,"",Stable identifier built from normalized DOI > arXiv ID > SHA-256(title+year); never vendor-originated.
+doi,all,uri,identifier,publisher public,public,"",Public persistent identifier when present; publish only with source attribution.
+arxiv_id,all,uri,identifier,arXiv (public),public,"",Public persistent identifier.
+final_doi,all,uri,identifier,publisher public,public,"",Final resolved DOI for the included study.
+final_arxiv_id,all,uri,identifier,arXiv (public),public,"",Final resolved arXiv ID for the included study.
+final_paper_key,all,key,researcher-assigned,internal_only,"",Do not publish the internal key verbatim; map to paper_id.
+title,all,string,bibliographic metadata,low_risk_confirm,"",Low risk but confirm source terms; prefer Crossref/OpenAlex reconstruction when in doubt.
+year,all,integer,bibliographic metadata,public,"",Publication year.
+venue,all,string,bibliographic metadata,low_risk_confirm,"",Venue/journal name; confirm source terms.
+authors,all,string,bibliographic metadata,low_risk_confirm,"",Author names; low risk but confirm source terms.
+corpus,all,category,researcher-coding,public,"",core|background group assignment.
+tier,all,category,researcher-coding,public,"",Quality tier {1,2,3} assigned during screening.
+review_source,all,category,researcher-coding,public,"",Which review path produced the record.
+source,all,string,researcher/derived,public,"",Source route annotation.
+inclusion,all,category,researcher-coding,public,"",Screening inclusion decision (researcher-generated).
+decision,all,category,researcher-coding,public,"",Generic screening decision.
+exclusion_reason,all,category,researcher-coding,public,review_required,Remove any quoted proprietary text and sensitive comments before publishing.
+removal_reason,all,category,researcher-coding,public,review_required,Researcher-assigned removal reason; strip quoted text.
+abstract_decision,all,category,researcher-coding,public,"",Abstract-stage review decision (researcher-generated).
+fulltext_decision,all,category,researcher-coding,public,"",Full-text-stage review decision (researcher-generated).
+relevance_decision,all,category,researcher-coding,public,"",Relevance filter decision (researcher-generated).
+read_status,all,category,researcher-coding,public,"",Reading status while writing.
+seed_group,all,category,researcher-coding,public,"",G0-G6 seed group.
+direction,all,category,researcher-coding,public,"",backward|forward snowball direction.
+source_engine,all,category,researcher-coding,public,"",Which engine provided the record.
+contribution_type,all,category,researcher-coding,public,"",Taxonomy of contribution (researcher-derived).
+method_name,all,string,researcher-coding,public,"",Researcher-chosen method label.
+peft_technique,all,category,researcher-coding,public,"",Methodological coding.
+distribution_mechanism,all,category,researcher-coding,public,"",Methodological coding.
+thesis_sections,all,category,researcher-coding,public,"",Thesis-section mapping.
+contribution_codes,all,category,researcher-coding,public,"",Contribution coding.
+category,all,category,researcher-coding,public,"",Final curation category.
+in_title_screened_s5,all,flag,derived-from-decisions,public,"",Stage flag (researcher decision lineage).
+in_enriched_s6,all,flag,derived-from-decisions,public,"",Stage flag.
+in_abstract_review_s7b,all,flag,derived-from-decisions,public,"",Stage flag.
+in_fulltext_queue_q9,all,flag,derived-from-decisions,public,"",Stage flag.
+in_extraction_e11,all,flag,derived-from-decisions,public,"",Stage flag.
+in_final_list_123,all,flag,derived-from-decisions,public,"",Stage flag (member of final 123).
+stage,screening_decisions,string,researcher-coding,public,"",Screening stage label.
+reason_code,screening_decisions,category,researcher-coding,public,"",Controlled reason code; see fulltext_exclusions.
+transition,prisma_counts,category,derived,public,"",PRISMA transition label.
+count,prisma_counts,integer,derived,public,"",Aggregate transition count.
+query_id,search_log_public,key,researcher,public,"",Search-query identifier (orientation only).
+retrieval_date,search_log_public,date,researcher,public,"",When the search/export ran.
+n_retrieved,search_log_public,integer,derived,public,"",Number of records retrieved (count only, no payload).
+run_id,search_log_public,key,researcher,public,"",Run identifier.
+final_classification,included_studies,category,researcher-coding,public,"",Final inclusion classification.
+provenance,all,string,researcher,public,"",Provenance pointer into provenance.json.
+licence_class,all,category,researcher,public,"",One of: public|low_risk_confirm|controlled|restricted.
+missing_value,all,string,researcher,public,"",Semantics of empty value ("" = real empty, etc.).
+reason,all,text,researcher,public,"",Rationale for the column's publication status.
+ss_paper_id,all,identifier,restricted,restricted,"",Semantic Scholar paper ID; internal only unless licence cleared, map to DOI.
+eid,all,identifier,restricted,restricted,"",Scopus EID; internal only, map to DOI.
+abstract,all,text,vendor-prose,restricted,"",Full abstract text — remove from public tables.
+keywords,all,text,vendor-prose,restricted,"",Author/index keywords — remove.
+affiliation,all,text,vendor-prose,restricted,"",Affiliations — remove.
+author_id,all,identifier,restricted,restricted,"",Author IDs — remove.
+citation_count,all,integer,licensed-metric,controlled_external,"",Citation counts are licensed-derived; use only aggregate/research-derived use with source+date, or suppress.
+times_cited,all,integer,licensed-metric,controlled_external,"",As citation_count.
+reference,all,text,vendor-prose,restricted,"",Cited-reference list — remove.
+funding,all,text,vendor-prose,restricted,"",Funding details/text — remove.
+notes_raw,all,text,researcher-note,review_required,"",Researcher notes; review/redact quotations and personal comments.
+key_finding,all,text,researcher-note,review_required,"",Researcher-written but may quote; review/redact.
+linked_url,all,uri,restricted,restricted,"",May be signed/authenticated URL — remove.
+Downloaded PDF,all,file,restricted,restricted,"",Full text; store only in access-controlled storage, publish resolver links.

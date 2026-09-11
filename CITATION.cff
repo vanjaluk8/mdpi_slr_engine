@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite it as below. Fields marked
+  OWNER ACTION must be filled before submission (GitHub URL, Zenodo DOI,
+  authors, ORCID).
+title: "SLR Engine: automated systematic literature review with citation snowballing and a PRISMA 2020 audit trail"
+# OWNER ACTION: set the authors of the software/paper release.
+authors:
+  - family-names: "OWNER"
+    given-names: "Author"
+    orcid: "https://orcid.org/0000-0000-0000-0000"   # OWNER ACTION
+    affiliation: "Infobip"
+date-released: "2026-09-11"
+version: "1.0.0-mdpi"
+# OWNER ACTION: set the real repository URL and, after archiving, the Zenodo
+# software DOI (doi:10.5281/zenodo.XXXXXXX).
+url: "https://github.com/OWNER/slr-engine"
+doi: "10.5281/zenodo.0000000"   # OWNER ACTION: Zenodo software release DOI
+license: MIT
+keywords:
+  - systematic-literature-review
+  - prisma-2020
+  - citation-snowballing
+  - bibliometrics
+  - peft
+  - nlp
+abstract: >-
+  Automated SLR engine implementing citation snowballing (Wohlin 2014) with a
+  PRISMA 2020-compatible audit trail, applied to PEFT and modular adapter
+  methods for transformer-based NLP models. This public release ships code,
+  configs, schemas, open evidence tables and safety tooling, and deliberately
+  withholds licensed bibliographic content.
+preferred-citation:
+  # OWNER ACTION: point at the manuscript record once submitted/published.
+  type: article
+  title: "Systematic Literature Review of Parameter-Efficient Fine-Tuning and Modular Adapters for Transformers"
+  authors:
+    - family-names: "OWNER"
+      given-names: "Author"
+  journal: "MDPI"

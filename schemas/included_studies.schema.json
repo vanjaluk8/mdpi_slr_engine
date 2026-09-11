@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "included_studies",
+  "description": "Final included studies — public identifiers and researcher classification only.",
+  "type": "object",
+  "required": ["paper_id", "final_classification"],
+  "properties": {
+    "paper_id": { "type": "string", "minLength": 1, "description": "Stable researcher-assigned id (doi:/arxiv:/sha:)." },
+    "doi": { "type": "string" },
+    "arxiv_id": { "type": "string" },
+    "year": { "type": ["integer", "string"] },
+    "title": { "type": "string" },
+    "final_classification": { "type": "string", "enum": ["core", "background"], "description": "Researcher classification." }
+  },
+  "additionalProperties": false
+}

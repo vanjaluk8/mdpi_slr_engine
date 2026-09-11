@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "fulltext_exclusions",
+  "description": "Full-text-stage exclusions with researcher-assigned reasons.",
+  "type": "object",
+  "required": ["paper_id", "exclusion_reason"],
+  "properties": {
+    "paper_id": { "type": "string", "minLength": 1 },
+    "exclusion_reason": { "type": "string", "description": "Researcher-assigned; quoted vendor text removed." }
+  },
+  "additionalProperties": false
+}

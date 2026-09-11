@@ -1,0 +1,8 @@
+paper_id,doi,arxiv_id,title,year,stage,decision,reason_code
+doi:10.xxxx/synth001,10.xxxx/synth001,2401.90001,"SynthNet: adapter tuning for distributed inference",2023,abstract,included,
+doi:10.xxxx/synth002,10.xxxx/synth002,2402.90002,"LoRA decomposition on federated nodes",2024,abstract,included,
+doi:10.xxxx/synth003,10.xxxx/synth003,2403.90003,"Routing mixtures among edge transformers",2024,abstract,included,
+doi:10.xxxx/synth004,10.xxxx/synth004,2404.90004,"Attention caching beyond the local host",2025,fulltext,excluded,OFFTOPIC
+doi:10.xxxx/synth005,10.xxxx/synth005,2405.90005,"Deterministic hash tables in CUDA kernels",2022,fulltext,excluded,MALFORMED
+doi:10.xxxx/synth006,10.xxxx/synth006,2406.90006,"P2P checkpointing for federated PEFT",2025,abstract,included,
+doi:10.xxxx/synth007,10.xxxx/synth007,2407.90007,"Sparse expert allocation for adapters",2024,abstract,uncertain,

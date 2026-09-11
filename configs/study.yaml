@@ -1,0 +1,38 @@
+# ── Study configuration (protocol template) ─────────────────────────────────
+# This is a TEMPLATE for the public release. It documents the study design so a
+# reviewer can reconstruct the searches without the restricted records. Where a
+# value marks an OWNER ACTION, fill it in from your manuscript before tagging
+# the release.
+#
+# See docs/data-provenance.md and docs/restricted-data.md for the data-sharing
+# boundary that governs which inputs are needed.
+
+title: "Decentralised adapter-based inference for LLMs: a systematic literature review"
+study_type: "Systematic literature review (SLR)"
+method: "Citation snowballing (Wohlin, 2014), PRISMA 2020 reporting"
+objective: "Synthesise research on decentralised, adapter-based PEFT and modular LLM inference."
+
+slr_engine:
+  version: "1.0.0"
+  release_tag: "v1.0.0-mdpi"            # TODO(owner): confirm tag at submission
+
+author:
+  name: "Vanja Luk"
+  orcid: ""                              # TODO(owner): add ORCID
+  affiliation: ""                        # TODO(owner): add affiliation
+
+paper:
+  title: ""                              # TODO(owner): manuscript title
+  journal: ""                            # TODO(owner): target MDPI journal
+  manuscript_doi: ""                     # TODO(owner): add after submission/production
+  repo_doi: ""                           # TODO(owner): add archived Zenodo software DOI (from GitHub release)
+
+seeds:
+  source: "data/inputs/G0_seed_papers.md (restricted; supplied via SLR_DATA_ROOT)"
+  groups: ["G0", "G1", "G2", "G3", "G4", "G5", "G6"]
+
+snowball:
+  direction: ["backward (references)", "forward (citations)"]
+  stopping_rule: "Layer-limited forward expansion with relevance screening; see search_strategies.yaml"
+  dedup_rule: "DOI preferred, then normalised title, then arXiv ID"
+  screening: "keyword rules + optional LLM triage + interactive abstract review (documented in eligibility_criteria.yaml)"
