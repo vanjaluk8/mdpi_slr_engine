@@ -7,8 +7,8 @@ stage does not match the manuscript. Writes a timestamped run to
 data/snowball_output/verification_runs/.
 
 Usage:
-    python scripts/verify_prisma_counts.py           # fixtures first, else snowball_output
-    python scripts/verify_prisma_counts.py --source snowball_output
+    python3 src/slr_engine/verify/verify_prisma_counts.py           # fixtures first, else snowball_output
+    python3 src/slr_engine/verify/verify_prisma_counts.py --source snowball_output
 """
 from __future__ import annotations
 

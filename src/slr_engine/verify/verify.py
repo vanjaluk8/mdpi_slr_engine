@@ -5,7 +5,7 @@ Runs every verification suite in one invocation:
     1. verify_prisma_counts.py      — PRISMA funnel (40 checks)   [committed fixtures]
     2. verify_quality_appraisal.py  — quality-appraisal / descriptive stats (19 checks) [fixtures]
     3. verify_live_run.py           — fresh-pipeline-run funnel   [live data/snowball_output/]
-    4. reconcile_text.py            — PRISMA numbers in manuscript prose   [../papers_code .tex]
+    4. reconcile_text.py            — PRISMA numbers in manuscript prose   [../mdpi_paper_slr .tex]
 
 The first two recompute every number from the committed `verification_fixtures/`
 snapshots (never read from the manuscript). The third proves a *fresh pipeline
@@ -21,7 +21,7 @@ Exit code 0 iff every check across every suite passes (i.e. the engine reproduce
 the manuscript exactly); non-zero otherwise.
 
 Usage:
-    python3 scripts/verify.py
+    python3 src/slr_engine/verify/verify.py
 """
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ def _run_reconcile_text() -> int:
     """Reconcile the funnel numbers in the manuscript prose (suite 4).
 
     reconcile_text.py auto-detects the manuscript under
-    ../papers_code/writing/mdpi_paper/ (or honours --tex/--dir), prints its own
+    ../mdpi_paper_slr/sections/ (or honours --tex/--dir), prints its own
     per-fact table, and exits non-zero on any prose that has drifted from the
     audited pipeline values. What is NOT in the prose (e.g. final core/background
     counts) is reported as "not located" but does not fail.

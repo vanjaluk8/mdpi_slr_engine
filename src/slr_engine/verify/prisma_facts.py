@@ -51,7 +51,7 @@ from slr_engine.verify.verify_common import EXPECTED, load_csv, repo_root, Check
 # ── Editorial / audited final-list facts  (see module docstring) ──────────────
 # Each duplicate pair is the two paper_keys in the 123-row list that are the SAME
 # work (one kept as a seed/arXiv record + one as the published/Scopus record).
-# Source: slr_engine/scripts/verify_common.py FINAL_DUPLICATE_WORKS (audited
+# Source: slr_engine/verify/verify_common.py FINAL_DUPLICATE_WORKS (audited
 # 2026-08-22; corrected 2026-09 for the CaraServe==Toppings rename).
 DUPLICATE_PAIRS = [
     ("2106.09685", "a8ca46b171467ceb2d7652fbfb67fe701ad86092"),   # LoRA

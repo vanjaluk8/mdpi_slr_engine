@@ -17,7 +17,7 @@ the committed PRISMA summary text.
 Exit code 0 iff every live number matches the manuscript.
 
 Usage:
-    python scripts/verify_live_run.py                 # live data/snowball_output/
+    python3 src/slr_engine/verify/verify_live_run.py                 # live data/snowball_output/
     SLR_OUTPUT_DIR=/path/to/run bash run_pipeline.sh --phase verify  # a --out run
 """
 from __future__ import annotations

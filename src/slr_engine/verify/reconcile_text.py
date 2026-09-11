@@ -20,12 +20,12 @@ is simply NOT stated in the prose are reported as "not located" (informational,
 not a failure) so you can see at a glance what the text omits.
 
 Usage:
-    python3 scripts/reconcile_text.py                          # auto-detect manuscript
-    python3 scripts/reconcile_text.py --tex ../papers_code/.../03_methodology.tex
-    python3 scripts/reconcile_text.py --dir ../papers_code/.../sections
-    python3 scripts/reconcile_text.py --all                    # also list every integer in
-                                                               #   the text that matches no
-                                                               #   canonical fact
+    python3 src/slr_engine/verify/reconcile_text.py              # auto-detect manuscript
+    python3 src/slr_engine/verify/reconcile_text.py --tex ../mdpi_paper_slr/sections/03_methodology.tex
+    python3 src/slr_engine/verify/reconcile_text.py --dir ../mdpi_paper_slr/sections
+    python3 src/slr_engine/verify/reconcile_text.py --all                    # also list every integer in
+                                                                             #   the text that matches no
+                                                                             #   canonical fact
 
 The `--all` pass additionally lists every integer found in the text that is NOT
 matched by any canonical fact (years, percentages, counts of other things, and
@@ -200,8 +200,8 @@ def _candidate_paths() -> list[Path]:
     if args.dir:
         given += sorted(Path(args.dir).glob("*.tex"))
     if not given:
-        for cand in (repo_root().parent / "papers_code" / "writing" / "mdpi_paper",
-                     repo_root().parent.parent / "papers_code" / "writing" / "mdpi_paper"):
+        for cand in (repo_root().parent / "mdpi_paper_slr",      # sibling paper repo (flattened)
+                     repo_root().parent / "papers_code" / "writing" / "mdpi_paper"):
             if (cand / "sections").exists():
                 given = sorted((cand / "sections").glob("*.tex"))
                 break

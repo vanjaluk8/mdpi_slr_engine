@@ -18,9 +18,9 @@ from collections import Counter
 from pathlib import Path
 
 # ── Expected funnel values, as reported in the MDPI manuscript (final, audited) ──
-# Source of truth: papers_code/writing/mdpi_paper/supplementary/PRISMA_NUMBERS_VALIDATION.md
-# and the Data Availability note in the manuscript. These are the numbers the
-# pipeline must reproduce EXACTLY.
+# Source of truth: the mdpi_paper_slr repo (manuscript + artefacts) and the Data
+# Availability note in the manuscript. These are the numbers the pipeline must
+# reproduce EXACTLY.
 EXPECTED = {
     # Stage 1 — identification
     "raw_retrieved":        1150,   # backward_examined 450 + forward_examined 700
@@ -79,8 +79,18 @@ FINAL_DUPLICATE_WORKS = [
 
 
 def repo_root() -> Path:
-    """slr_engine repo root = parent of this scripts/ dir."""
-    return Path(__file__).resolve().parent.parent
+    """slr_engine repo root (the dir containing pyproject.toml).
+
+    ``verify_common.py`` lives at ``src/slr_engine/verify/``, so walk up until
+    the repository marker is found rather than assuming a fixed depth.
+    """
+    p = Path(__file__).resolve()
+    for _ in range(6):
+        p = p.parent
+        if (p / "pyproject.toml").exists():
+            return p
+    # fallback: repo root = parent of this src/ dir (src/slr_engine/verify -> root)
+    return Path(__file__).resolve().parent.parent.parent.parent
 
 
 def fixtures_dir() -> Path:
@@ -285,7 +295,7 @@ def make_report(records: list[dict] | None = None) -> Path:
         "",
         "> The values quoted in the PRISMA funnel and quality-appraisal tables of the "
         "manuscript are exactly reproduced here from the pipeline artifacts committed "
-        "to `verification_fixtures/`. Run `python3 scripts/verify.py` to regenerate "
+        "to `verification_fixtures/`. Run `python3 src/slr_engine/verify/verify.py` to regenerate "
         "this report on any fresh clone.",
     ]
 

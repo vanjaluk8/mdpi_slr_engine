@@ -6,6 +6,8 @@ open while reading the manuscript.
 import json, sys
 from pathlib import Path
 
+from slr_engine.verify.verify_common import repo_root
+
 facts = json.loads((Path(sys.argv[1]) if len(sys.argv)>1 else
     Path("data/snowball_output/generated/prisma_facts.json")).read_text())
 
@@ -99,6 +101,11 @@ A("")
 A("---")
 A("Consistency: 21 checks pass (see `prisma_facts.py` / `verify_common.py`).")
 
-out = Path("/Users/vluk/PycharmProjects/papers_code/writing/mdpi_paper/PRISMA_VALIDATION_TABLE.md")
+# Write the validation table into the sibling paper repo (mdpi_paper_slr), which
+# is where per-record artefacts and verify outputs are version-controlled (DAS).
+# Fall back to the engine repo root if the sibling isn't present.
+paper = repo_root().parent / "mdpi_paper_slr"
+out_dir = paper if (paper / "snowball_output").exists() else repo_root()
+out = out_dir / "PRISMA_VALIDATION_TABLE.md"
 out.write_text("\n".join(L)+"\n", encoding="utf-8")
 print("wrote", out)

@@ -14,7 +14,7 @@ Reported statistics covered (from the manuscript + PRISMA_NUMBERS_VALIDATION.md)
   - year distribution of the final 123 (range 2002-2026; most active 2024 = 38)
 
 Usage:
-    python scripts/verify_quality_appraisal.py
+    python3 src/slr_engine/verify/verify_quality_appraisal.py
 """
 from __future__ import annotations
 
